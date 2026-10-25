@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ตารางเรียน เทอม 1/2026</title>
+<style>
+:root{--sky1:#0b1a2b;--sky2:#14304a;--sky3:#1d4262;--text:#f4f8fc;--soft:#b9cde0;--line:#e8f1f9;--room:#ffe45c;--chip:rgba(255,255,255,.1);--chip-b:rgba(255,255,255,.18);--cloud:rgba(255,255,255,.1);--tag:#8ec5ff;--tag2:#ffc27a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--sky1:#cfe3f4;--sky2:#e3effa;--sky3:#f3f8fd;--text:#12263a;--soft:#4c6479;--line:#2b4a66;--room:#a15c00;--chip:rgba(255,255,255,.65);--chip-b:rgba(20,50,80,.12);--cloud:rgba(255,255,255,.8);--tag:#1d5fb8;--tag2:#a15c00}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--text);font-family:"Noto Sans Thai",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.45;
+background:radial-gradient(60% 30% at 15% 22%,var(--cloud),transparent 70%),radial-gradient(50% 25% at 90% 8%,var(--cloud),transparent 70%),radial-gradient(55% 22% at 80% 60%,var(--cloud),transparent 70%),linear-gradient(180deg,var(--sky1),var(--sky2) 55%,var(--sky3));background-attachment:fixed}
+.wrap{max-width:560px;margin:0 auto;padding:28px 18px 48px}
+.title{text-align:center;margin-bottom:6px;letter-spacing:.08em;font-weight:800;line-height:1.05}
+.title .a{display:block;font-size:2rem;color:var(--soft)}
+.title .b{display:block;font-size:2rem;color:transparent;-webkit-text-stroke:1.2px var(--text)}
+.sub{text-align:center;color:var(--soft);font-size:.82rem;margin:8px 0 26px}
+.day{display:grid;grid-template-columns:118px 1fr;column-gap:0;margin-bottom:6px}
+.dl{padding-right:14px}
+.dn{font-size:1.45rem;font-weight:800;letter-spacing:.02em;line-height:1.1}
+.dn small{display:block;font-size:.72rem;font-weight:500;color:var(--soft);letter-spacing:.04em}
+.now{display:inline-block;margin-top:4px;font-size:.68rem;padding:1px 9px;border-radius:99px;background:var(--room);color:#1a1a1a;font-weight:700}
+.tl{border-left:2px solid var(--line);padding:2px 0 22px 18px;position:relative;min-height:46px}
+.tl::before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--line)}
+.row{display:grid;grid-template-columns:118px 1fr;margin-left:-0px}
+.cls{background:var(--chip);border:1px solid var(--chip-b);border-radius:14px;padding:9px 13px;margin-bottom:9px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.t{font-size:.8rem;color:var(--soft);font-variant-numeric:tabular-nums;margin-bottom:1px}
+.n{font-weight:800;font-size:.98rem;text-transform:uppercase;letter-spacing:.01em}
+.m{font-size:.76rem;color:var(--soft);margin-top:2px}
+.rm{color:var(--room);font-weight:700}
+.tg{font-weight:700;color:var(--tag)}
+.tg.p{color:var(--tag2)}
+.free{color:var(--soft);font-size:.85rem;padding-top:0}
+.tabs{display:flex;gap:6px;margin-bottom:22px}.tab{flex:1;border:1px solid var(--chip-b);background:var(--chip);color:var(--text);border-radius:14px;padding:8px 2px;font:inherit;font-size:.74rem;font-weight:700;letter-spacing:.03em;cursor:pointer;position:relative;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}.tab small{display:block;font-weight:500;color:var(--soft);font-size:.66rem}.tab.on{background:var(--text);color:var(--sky1);border-color:var(--text)}.tab.on small{color:var(--sky2)}.tab.td::after{content:"";position:absolute;top:5px;right:7px;width:6px;height:6px;border-radius:50%;background:var(--room)}
+.foot{margin-top:18px;text-align:center;font-size:.78rem;color:var(--soft)}
+.foot b{color:var(--text)}
+@media (max-width:380px){.day{grid-template-columns:96px 1fr}.dn{font-size:1.2rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="title"><span class="a">JADWAL</span><span class="b">MATA KULIAH</span></div>
+  <div class="sub">เทอม 1 / 2026 · MANAJEMEN S1 · MR. MUHAMMADASHA - KUETEH</div>
+  <div class="tabs" id="tabs"></div>
+  <div id="app"></div>
+  <div class="foot"><b>22 SKS</b> (อนุญาต 24) · ที่ปรึกษา Dr. Agung Utama SE., M.Si.</div>
+</div>
+<script>
+var D=[["SENIN","จันทร์"],["SELASA","อังคาร"],["RABU","พุธ"],["KAMIS","พฤหัสบดี"],["JUMAT","ศุกร์"]];
+var S=[
+[0,"07.30 - 09.10","Pemasaran Retail","Teori","H.03 LT 2.014","Dr. Penny Rahmawaty"],
+[0,"09.20 - 11.00","Pemasaran Retail","Praktik","H.03 LT 2.014","Dr. Penny Rahmawaty"],
+[0,"13.40 - 15.20","Bahasa Indonesia","Teori","H.06 LT 4.010","Sakinah Isna Firmani"],
+[0,"15.30 - 17.10","Riset Pemasaran","Teori","H.04 LT 4.002","Arifiani Widjayanti"],
+[0,"17.11 - 18.50","Riset Pemasaran","Praktik","H.04 LT 4.002","Arifiani Widjayanti"],
+[1,"11.10 - 12.50","Manajemen Hubungan Pelanggan","Teori","H.02 LT 2.003","Wardana"],
+[1,"13.40 - 15.20","Manajemen Hubungan Pelanggan","Praktik","H.02 LT 2.003","Wardana"],
+[2,"09.20 - 11.00","Bisnis dan Ekonomi Indonesia","Teori","H.02 LT 2.003","Dr. Nenden Susilowati"],
+[2,"11.10 - 12.50","Pemasaran Syariah","Teori","H.02 LT 2.003","Arif Wibowo"],
+[2,"13.40 - 15.20","Pemasaran Syariah","Praktik","H.02 LT 2.003","Arif Wibowo"],
+[2,"15.30 - 17.10","Seminar Manajemen Pemasaran","Teori","H.04 LT 4.010","Dr. Agung Utama"],
+[2,"17.11 - 18.50","Seminar Manajemen Pemasaran","Praktik","H.04 LT 4.010","Dr. Agung Utama"],
+[3,"07.30 - 09.10","Penganggaran Perusahaan","Teori","H.03 LT 2.014","Nindya Nuriswati Laili"],
+[3,"09.20 - 11.00","Penganggaran Perusahaan","Praktik","H.03 LT 2.014","Nindya Nuriswati Laili"]
+];
+var TH={Teori:"ทฤษฎี",Praktik:"ปฏิบัติ"};
+var g=new Date().getDay(),today=(g>=1&&g<=5)?g-1:-1;
+var cur=today>=0?today:0;
+function renderTabs(){document.getElementById("tabs").innerHTML=D.map(function(d,i){return '<button class="tab'+(i===cur?' on':'')+(i===today?' td':'')+'" onclick="cur='+i+';render()">'+d[0].slice(0,3)+'<small>'+d[1]+'</small></button>'}).join("")}
+function render(){
+document.getElementById("app").innerHTML=D.map(function(d,i){
+  if(i!==cur)return "";
+  var its=S.filter(function(s){return s[0]===i});
+  var body=its.length?its.map(function(s){
+    return '<div class="cls"><div class="t">'+s[1]+'</div><div class="n">'+s[2]+'</div>'+
+    '<div class="m"><span class="tg'+(s[3]==="Praktik"?" p":"")+'">'+TH[s[3]]+'</span> · <span class="rm">'+s[4]+'</span> · '+s[5]+'</div></div>';
+  }).join(""):'<div class="free">ไม่มีเรียน 🌤️</div>';
+  return '<div class="day"><div class="dl"><div class="dn">'+d[0]+'<small>'+d[1]+'</small></div>'+(i===today?'<span class="now">วันนี้</span>':'')+'</div><div class="tl">'+body+'</div></div>';
+}).join("");
+renderTabs();}
+render();
+</script>
+</body>
+</html>
